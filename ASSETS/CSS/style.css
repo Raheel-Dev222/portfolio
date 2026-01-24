@@ -194,6 +194,8 @@
         cursor: pointer;
         color: var(--primary3);
         transition: 0.3s ease;
+        animation-name: them;
+        animation-duration: 2.5s;
     }
 
     /* HAMBURGER */
@@ -205,6 +207,12 @@
         justify-content: space-between;
         cursor: pointer;
         z-index: 1001;
+    }
+
+   @keyframes them{
+        from{
+            transform: translateY(-110px);
+        }
     }
 
     .hamburger span {
@@ -1753,4 +1761,5 @@
         .footer p {
             font-size: 0.7rem !important;
         }
+
     }
