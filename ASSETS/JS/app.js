@@ -288,3 +288,42 @@ document.querySelectorAll(".nav-links li a").forEach(link => {
 
 });
 
+//----------- FORM VALIDATION -----------
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let message = document.getElementById("message").value.trim();
+    let error = document.getElementById("error");
+
+    // Regex patterns
+    let nameRegex = /^[A-Za-z ]{3,30}$/;
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    error.innerText = "";
+
+    // Name validation
+    if (!nameRegex.test(name)) {
+        e.preventDefault();
+        error.innerText = "Name should be 3-30 letters only.";
+        return;
+    }
+
+    // Email validation
+    if (!emailRegex.test(email)) {
+        e.preventDefault();
+        error.innerText = "Enter a valid email address.";
+        return;
+    }
+
+    // Message validation
+    if (message.length < 10) {
+        e.preventDefault();
+        error.innerText = "Message must be at least 10 characters.";
+        return;
+    }
+
+});
+
+
